@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - John Doe Portfolio</title>
+    <link rel="stylesheet" href="../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: sticky;
+            top: 120px;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .profile-info h2 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .download-cv {
+            width: 100%;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .download-cv:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline {
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 3px solid #e5e7eb;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .timeline-item:last-child {
+            border-left: none;
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .skills-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 0.75rem;
+            color: #667eea;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .skill-level {
+            display: flex;
+            gap: 2px;
+        }
+
+        .skill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e5e7eb;
+        }
+
+        .skill-dot.filled {
+            background: #667eea;
+        }
+
+        .education-section {
+            padding: 80px 0;
+        }
+
+        .education-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .education-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .education-card h3 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card p {
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-year {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-card {
+                position: static;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .skills-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html">JD</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="container">
+                <h1>About Me</h1>
+                <p>Passionate full-stack developer with a love for creating innovative digital solutions</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-grid">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h2>John Doe</h2>
+                            <p>Full-Stack Developer & UI/UX Designer</p>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">5+</span>
+                                    <span class="stat-label">Years Experience</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Projects Completed</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">30+</span>
+                                    <span class="stat-label">Happy Clients</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">15+</span>
+                                    <span class="stat-label">Technologies</span>
+                                </div>
+                            </div>
+                            <a href="#" class="download-cv">
+                                <i class="fas fa-download"></i> Download CV
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="about-content">
+                        <h3>My Story</h3>
+                        <p>
+                            I'm a passionate full-stack developer with over 5 years of experience creating 
+                            innovative digital solutions. My journey in technology began when I built my 
+                            first website at the age of 16, and since then, I've been constantly learning 
+                            and evolving with the ever-changing landscape of web development.
+                        </p>
+                        <p>
+                            I specialize in modern web technologies and have worked on projects ranging 
+                            from small business websites to complex enterprise applications. My approach 
+                            combines technical expertise with creative problem-solving, ensuring that 
+                            every project not only meets functional requirements but also delivers an 
+                            exceptional user experience.
+                        </p>
+                        <p>
+                            When I'm not coding, you can find me exploring new technologies, contributing 
+                            to open-source projects, or sharing knowledge with the developer community. 
+                            I believe in continuous learning and staying up-to-date with the latest 
+                            industry trends and best practices.
+                        </p>
+
+                        <div class="timeline">
+                            <h3>Professional Experience</h3>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2022 - Present</div>
+                                <div class="timeline-title">Senior Full-Stack Developer</div>
+                                <div class="timeline-company">TechCorp Inc.</div>
+                                <div class="timeline-description">
+                                    Lead development of enterprise web applications using React, Node.js, and AWS. 
+                                    Mentored junior developers and implemented best practices for code quality and deployment.
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2020 - 2022</div>
+                                <div class="timeline-title">Frontend Developer</div>
+                                <div class="timeline-company">Digital Solutions Ltd.</div>
+                                <div class="timeline-description">
+                                    Developed responsive web applications using React and Vue.js. Collaborated with 
+                                    design teams to implement pixel-perfect user interfaces and optimize performance.
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2019 - 2020</div>
+                                <div class="timeline-title">Junior Developer</div>
+                                <div class="timeline-company">StartupXYZ</div>
+                                <div class="timeline-description">
+                                    Built and maintained client websites using HTML, CSS, JavaScript, and PHP. 
+                                    Worked closely with clients to understand requirements and deliver solutions.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="skills-container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <span class="skill-name">HTML5 & CSS3</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">JavaScript (ES6+)</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">React.js</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">Vue.js</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">TypeScript</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> Backend Development</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">Python</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">PHP</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">Express.js</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">Django</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Databases & Tools</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <span class="skill-name">MySQL</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">MongoDB</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">PostgreSQL</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">Git & GitHub</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="skill-name">Docker</span>
+                                <div class="skill-level">
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot filled"></span>
+                                    <span class="skill-dot"></span>
+                                    <span class="skill-dot"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education-section">
+            <div class="education-container">
+                <h2 class="section-title">Education & Certifications</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Bachelor of Computer Science</h3>
+                        <p>University of Technology</p>
+                        <p class="education-year">2015 - 2019</p>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>AWS Certified Developer</h3>
+                        <p>Amazon Web Services</p>
+                        <p class="education-year">2021</p>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>React Developer Certification</h3>
+                        <p>Meta (Facebook)</p>
+                        <p class="education-year">2022</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>John Doe</h3>
+                    <p>Full-Stack Developer & UI/UX Designer</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>hello@johndoe.com</p>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+</html>
